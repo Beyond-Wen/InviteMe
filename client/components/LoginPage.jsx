@@ -8,7 +8,7 @@ const LoginPage = () => {
   const { isLoading, error } = useAuth0()
   return (
     <div>
-      <h1>Auth0 Login</h1>
+      <h1>Please sign in</h1>
       {error && <p>Authentication Error</p>}
       {!error && isLoading && <p>Loading...</p>}
       {!error && !isLoading && (

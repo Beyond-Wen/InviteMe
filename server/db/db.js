@@ -27,7 +27,6 @@ function addGuest(
 
 function deleteGuest(id, db = connection) {
   return db('guest').del().where('id', id)
-  // .then(() => getGuests())
 }
 
 function updateGuest(

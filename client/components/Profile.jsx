@@ -9,7 +9,7 @@ const Profile = () => {
       <article className="column">
         {/* {JSON.stringify(user)} */}
         {/* {user?.picture && <img src={user.picture} alt={user?.name} />} */}
-        <h2>Welcome {user?.name}</h2>
+        <h2>Thank you, {user?.name}</h2>
         {/* <ul>
           {Object.keys(user).map((objKey, i) => (
             <li key={i}>             

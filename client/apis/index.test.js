@@ -1,9 +1,3 @@
-// import nock from 'nock'
-
-it('runs', () => {
-  expect(1).toBe(1)
-})
-
 import nock from 'nock'
 import { addNewGuest, getAllGuests, getSingleGuest, sendEmail } from './index'
 import { guestsArray } from '../../tests/fake-data'
@@ -84,7 +78,6 @@ describe('getSingleGuest', () => {
 
 describe('sendEmail', () => {
   const recipient = guestsArray[1]
-  console.log(recipient)
   const scope = nock('http://localhost')
     .post('/api/v1/guests/send-invites')
     .reply(200)
