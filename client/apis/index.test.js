@@ -1,6 +1,14 @@
 import nock from 'nock'
-import { addNewGuest, getAllGuests, getSingleGuest, sendEmail } from './index'
+import {
+  addNewGuest,
+  deleteGuestApi,
+  getAllGuests,
+  getSingleGuest,
+  sendEmail,
+  updateRsvpGuest,
+} from './index'
 import { guestsArray } from '../../tests/fake-data'
+import { updateGuest } from '../../server/db/db'
 
 describe('getAllGuests', () => {
   const scope = nock('http://localhost')
@@ -16,6 +24,32 @@ describe('getAllGuests', () => {
       expect(Object.keys(guestsArray[0])).toHaveLength(9)
       expect(scope.isDone()).toBe(true)
       return null
+    })
+  })
+})
+
+describe('sendEmail', () => {
+  const recipient = guestsArray[1]
+  const scope = nock('http://localhost')
+    .post('/api/v1/guests/send-invites')
+    .reply(200)
+  test('returns success status 200', () => {
+    expect.assertions(2)
+    return sendEmail(recipient).then((res) => {
+      expect(res.status).toBe(200)
+      expect(scope.isDone()).toBe(true)
+    })
+  })
+})
+
+describe('deleteGuestApi', () => {
+  const id = guestsArray[3].id
+  const scope = nock('http://localhost').delete('/api/v1/guests/').reply(200)
+  test('returns success status 200', () => {
+    expect.assertions(2)
+    return deleteGuestApi(id).then((res) => {
+      expect(res.status).toBe(200)
+      expect(scope.isDone()).toBe(true)
     })
   })
 })
@@ -76,24 +110,35 @@ describe('getSingleGuest', () => {
   })
 })
 
-describe('sendEmail', () => {
-  const recipient = guestsArray[1]
+//updateRSVPguest
+
+describe('updateRsvpGuest', () => {
+  const id = guestsArray[2].id
+  const fakeUpdatedGuest = {
+    id: 3,
+    name: 'Dracuman',
+    email: 'dracuman@hotmail.com',
+    plusone: 1,
+    plusone_Name: 'Fairy',
+    dietary: 'blood only',
+    rsvp: 1,
+    event_id: 1,
+    table_Number: 2,
+  }
+
   const scope = nock('http://localhost')
-    .post('/api/v1/guests/send-invites')
-    .reply(200)
-  test('returns success status 200', () => {
-    expect.assertions(2)
-    return sendEmail(recipient).then((res) => {
-      expect(res.status).toBe(200)
+    .patch(`/api/v1/rsvp/${id}`)
+    .reply(200, fakeUpdatedGuest)
+
+  test('returns guest with id = 1', () => {
+    expect.assertions(5)
+    return updateRsvpGuest(id).then((res) => {
+      expect(res.id).toBe(3)
+      expect(res.name).toBe('Dracuman')
+      expect(res.email).toBe('dracuman@hotmail.com')
+      expect(res.plusone_Name).toBe('Fairy')
       expect(scope.isDone()).toBe(true)
+      return null
     })
   })
 })
-
-//check status 200
-//check correct response being sent
-// describe('deleteGuestApi', () => {
-//   const scope = nock('http://localhost')
-//     .get('/api/v1/guests/')
-//     .reply(200, guestsArray)
-// })

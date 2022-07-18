@@ -1,6 +1,9 @@
-
-import { RECEIVE_GUESTS, ADD_GUEST, SET_GUEST , ADD_GUESTS_SUCCESS } from '../actions'
-
+import {
+  RECEIVE_GUESTS,
+  ADD_GUEST,
+  SET_GUEST,
+  ADD_GUESTS_SUCCESS,
+} from '../actions'
 
 const initialState = []
 

@@ -51,9 +51,10 @@ export default function RSVPForm() {
   const handleSubmit = (evt) => {
     evt.preventDefault()
     dispatch(updateGuest({ id, ...guest }))
-    alert('submission successful!')
+
     setGuest(initialState)
-    navigate('/login')
+    // navigate('/login')
+    navigate('/logout')
   }
 
   const handleChange = (evt) => {

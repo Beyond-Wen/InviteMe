@@ -6,6 +6,7 @@ import LoginPage from './LoginPage'
 import NoMatch from './NoMatch'
 import MainLayout from './MainLayout.jsx'
 import Callback from './Callback'
+import LogoutPage from './LogoutPage'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/callback" element={<Callback />} />
             <Route path="*" element={<NoMatch />} />
+            <Route path="/logout" element={<LogoutPage />} />
           </Routes>
         </Router>
       </div>

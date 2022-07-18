@@ -32,7 +32,6 @@ router.post('/send-invites', (req, res) => {
 //delete guest/ api/v1/guests
 router.delete('/', (req, res) => {
   const { id } = req.body
-
   db.deleteGuest(id)
     .then((guest) => {
       res.json(guest)
