@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { fetchGuests, addGuest } from '../actions'
+import { Input, Select, Button, Text, Box } from '@chakra-ui/react'
+;<link
+  href="https://fonts.googleapis.com/css?family=Montserrat:300,700|Playfair+Display:400i"
+  rel="stylesheet"
+></link>
 
 export default function AddGuests() {
   const initialState = {
@@ -38,31 +43,62 @@ export default function AddGuests() {
   }, [])
 
   return (
-    <>
+    <Box ml={2}>
+      <Text color="white" fontSize="6xl" fontWeight="extrabold">
+        Invite your friends and family!
+      </Text>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Guest Name:</label>
-        <input
+        <label htmlFor="name">
+          <Text fontSize="2xl" fontWeight="bold" color="white">
+            Guest Name:
+          </Text>
+        </label>
+        <Input
           id="name"
           type="text"
           name="name"
           value={guest.name}
           onChange={handleChange}
+          placeholder="Please fill in your name"
+          color="tomato"
+          _placeholder={{ color: 'inherit' }}
+          bgColor="#FFF8BE"
         />
-        <label htmlFor="email">Email:</label>
-        <input
+        <br></br>
+        <br></br>
+        <label htmlFor="email">
+          <Text fontSize="2xl" fontWeight="bold" color="white">
+            Email:
+          </Text>
+        </label>
+        <Input
           id="email"
           type="text"
           name="email"
           value={guest.email}
           onChange={handleChange}
+          placeholder="Please fill in your email address"
+          color="tomato"
+          _placeholder={{ color: 'inherit' }}
+          bgColor="#FFF8BE"
         />
+        <br></br>
+        <br></br>
         <p>
-          <label htmlFor="rsvp">Are you coming?</label>
+          <label htmlFor="rsvp">
+            <Text fontSize="2xl" fontWeight="bold" color="white">
+              Are you coming?
+            </Text>
+          </label>
         </p>
-        <select
+        <Select
           name="rsvp"
           value={guest.rsvp}
           onChange={(evt) => handleChange(evt)}
+          placeholder="Please fill in your name"
+          color="tomato"
+          _placeholder={{ color: 'inherit' }}
+          bgColor="#FFF8BE"
         >
           <option name="rsvp" value="1">
             Yeeea!
@@ -70,14 +106,23 @@ export default function AddGuests() {
           <option name="rsvp" value="0">
             Yeah, but Naaah
           </option>
-        </select>
+        </Select>
+        <br></br>
         <p>
-          <label htmlFor="plusone">Would you like to bring a plus one?</label>
+          <label htmlFor="plusone">
+            <Text fontSize="2xl" fontWeight="bold" color="white">
+              Would you like to bring a plus one?
+            </Text>
+          </label>
         </p>
-        <select
+        <Select
           name="plusone"
           value={guest.plusone}
           onChange={(evt) => handleChange(evt)}
+          placeholder="Please fill in your name"
+          color="tomato"
+          _placeholder={{ color: 'inherit' }}
+          bgColor="#FFF8BE"
         >
           <option name="plusone" value="0">
             No, I fly solo.
@@ -85,41 +130,87 @@ export default function AddGuests() {
           <option name="plusone" value="1">
             Yes, I can't be alone for 5 minutes.
           </option>
-        </select>
-        <label htmlFor="plusone_Name">Name of Plus One:</label>
-        <input
+        </Select>
+        <br></br>
+        <label htmlFor="plusone_Name">
+          <Text fontSize="2xl" fontWeight="bold" color="white">
+            Name of Plus One:
+          </Text>
+        </label>
+        <Input
           id="plusone_Name"
           type="text"
           name="plusone_Name"
           value={guest.plusone_Name}
           onChange={handleChange}
+          placeholder="Please fill in the name of your plusone"
+          color="tomato"
+          _placeholder={{ color: 'inherit' }}
+          bgColor="#FFF8BE"
         />
-        <label htmlFor="dietary">Dietary:</label>
-        <input
+        <br></br>
+        <br></br>
+        <label htmlFor="dietary">
+          <Text fontSize="2xl" fontWeight="bold" color="white">
+            Dietary:
+          </Text>
+        </label>
+        <Input
           id="dietary"
           type="text"
           name="dietary"
           value={guest.dietary}
           onChange={handleChange}
+          placeholder="Please fill in your dietary requirements"
+          color="tomato"
+          _placeholder={{ color: 'inherit' }}
+          bgColor="#FFF8BE"
         />
-        <label htmlFor="event_id">Event Id:</label>
-        <input
+        <br></br>
+        <br></br>
+        <label htmlFor="event_id">
+          <Text fontSize="2xl" fontWeight="bold" color="white">
+            Event Id:
+          </Text>
+        </label>
+        <Input
           id="event_id"
           type="text"
           name="event_id"
           value={guest.event_id}
           onChange={handleChange}
+          placeholder="Please fill in the event id"
+          color="tomato"
+          _placeholder={{ color: 'inherit' }}
+          bgColor="#FFF8BE"
         />
-        <label htmlFor="groupNumber">Group Number:</label>
-        <input
+        <br></br>
+        <br></br>
+        <label htmlFor="groupNumber">
+          <Text fontSize="2xl" fontWeight="bold" color="white">
+            Group Number:
+          </Text>
+        </label>
+        <Input
           id="groupNumber"
           type="text"
           name="groupNumber"
           value={guest.groupNumber}
           onChange={handleChange}
+          placeholder="Please fill in your group number"
+          color="tomato"
+          _placeholder={{ color: 'inherit' }}
+          bgColor="#FFF8BE"
         />
-        <button type="submit">Submit</button>
+        <br></br>
+        <br></br>
+
+        <Button type="submit" colorScheme="teal">
+          Submit
+        </Button>
+        <br></br>
+        <br></br>
       </form>
-    </>
+    </Box>
   )
 }

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 import { useAuth0 } from '@auth0/auth0-react'
+import { Text } from '@chakra-ui/react'
 
 export default function rsvp() {
   const { logout } = useAuth0()
@@ -17,6 +18,7 @@ export default function rsvp() {
 
   return (
     <div className="top">
+      <Text fontSize={50}>❤️💑🏻❤️</Text>
       <div className="topRight">
         <ul className="topList">
           <Link to="/">
