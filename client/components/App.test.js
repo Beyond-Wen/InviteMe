@@ -11,15 +11,6 @@ import Navbar from './Navbar'
 import GuestList from './GuestList'
 import { guestsArray } from '../../tests/fake-data'
 
-describe('setGuests reducer', () => {
-  it('sets guests data', () => {
-    const oldState = ['david']
-    const action = setGuest(['ayoung'])
-    const newState = guests(oldState, action)
-    expect(newState.guests).toEqual(action.payload)
-  })
-})
-
 const fakeStore = {
   subscribe: jest.fn(),
   getState: jest.fn(() => {
