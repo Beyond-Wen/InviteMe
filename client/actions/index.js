@@ -26,10 +26,12 @@ export const fetchGuests = () => {
 export const fetchSingleGuest = (id) => {
   return (dispatch) => {
     dispatch(setLoading())
-    return getSingleGuest(id)
-      .then((guest) => dispatch(receiveGuests(guest)))
-      .then((guests) => console.log(guests))
-      .catch((err) => dispatch(setError(err.message)))
+    return (
+      getSingleGuest(id)
+        .then((guest) => dispatch(receiveGuests(guest)))
+        // .then((guests) => console.log(guests))
+        .catch((err) => dispatch(setError(err.message)))
+    )
   }
 }
 

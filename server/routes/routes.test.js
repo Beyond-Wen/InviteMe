@@ -29,8 +29,8 @@ const guestMock = [
   },
 ]
 // using mock to test so we don't need to update tests everytime db changes.
-describe('GET /api/v1/guests', () => {
-  test('mock route data', () => {
+describe('mock route data', () => {
+  test('GET /api/v1/guests', () => {
     expect.assertions(2)
     db.getGuests.mockImplementation(() => Promise.resolve(guestMock))
     return request(server)
@@ -41,4 +41,29 @@ describe('GET /api/v1/guests', () => {
         expect(res.body).toHaveLength(2)
       })
   })
+  // test('POST route test', () => {
+  //   const addGuest = {
+  //     name: 'Benjamin',
+  //     email: 'ben@devacademy.co.nz',
+  //     plusone:  true,
+  //     plusone_name: 'Savannah',
+  //     dietary: 'Dairy products',
+  //     rsvp: true,
+  //     event_id: 6,
+  //     groupNumber: 7,
+  //   }
+  //   expect.assertions(2)
+  //   return db
+  //   .addGuest
+  //   .getGuests.mockImplementation(() => Promise.resolve(addGuest))
+  //   .request(server)
+  //     .get('/api/v1/guests')
+  //     .expect(200)
+  //     .then((result) => {
+  //       expect(result[3].name).toBe('Benjamin')
+  //       expect(result).toHaveLength(3)
+  //     })
+  // })
+
+
 })

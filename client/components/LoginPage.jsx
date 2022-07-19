@@ -19,7 +19,7 @@ const LoginPage = () => {
           <LoginButton />
           <Profile />
         </>
-      )}
+      )} 
     </div>
   )
 }

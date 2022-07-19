@@ -74,4 +74,19 @@ describe('test db functions', () => {
         expect(result).toHaveLength(5)
       })
   })
+  it('tests the findGuestByEmail function', () => {
+    expect.assertions(2)
+    return db.getGuests(testDb).then((result) => {
+      expect(result[0].email).toBe('ayoungleeh@gmail.com')
+      expect(result).toHaveLength(5)
+    })
+  })
+  it('tests the findGuestById function', () => {
+    expect.assertions(3)
+    return db.getGuests(testDb).then((result) => {
+      expect(result[1].id).toBe(2)
+      expect(result[1].name).toBe('Beyond')
+      expect(result).toHaveLength(5)
+  })
+  })
 })

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import store from './store'
 import App from './components/App'
+import { BrowserRouter } from 'react-router-dom'
 import { Auth0Provider } from '@auth0/auth0-react'
 
 // const domain = process.env.REACT_APP_AUTH0_DOMAIN
@@ -10,16 +11,20 @@ import { Auth0Provider } from '@auth0/auth0-react'
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Provider store={store}>
-      <Auth0Provider
-        domain={'dev-blnz5ahc.us.auth0.com'}
-        clientId={'APUibj3fJNomrBl59ebBqywKD32Em1HS'}
-        redirectUri={window.location.origin}
-        audience="https://guests/api"
-      >
-        <App />
-      </Auth0Provider>
-    </Provider>,
+    <React.StrictMode>
+      <BrowserRouter>
+        <Provider store={store}>
+          <Auth0Provider
+            domain={'dev-blnz5ahc.us.auth0.com'}
+            clientId={'APUibj3fJNomrBl59ebBqywKD32Em1HS'}
+            redirectUri={window.location.origin}
+            audience="https://guests/api"
+          >
+            <App />
+          </Auth0Provider>
+        </Provider>
+      </BrowserRouter>
+    </React.StrictMode>,
     document.getElementById('app')
   )
 })
