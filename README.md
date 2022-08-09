@@ -12,5 +12,5 @@ The host will receive the updated guest details, and can add their plus one to t
 Finally, the host is able to drag and drop guests into different tables in the Seating Plan. 
 
 
-You can find a video demo of this application at [https://www.youtube.com/watch?v=2AkPOkDR4GI].
-An early deployed version can be found here [https://invite-me-wedding-invites.herokuapp.com/].
+You can find a video demo of this application at [https://www.youtube.com/watch?v=2AkPOkDR4GI]
+An early deployed version can be found here [https://invite-me-wedding-invites.herokuapp.com/]
